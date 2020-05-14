@@ -18,7 +18,7 @@ PROBLEM SOLVING FOR CODING INTERVIEW AND COMPETITIVE PROGRAMMING.
     The reason for this is that one algorithm may take 1s in a fast modern pc and may take 5s in an old computer. So we can tell absolutely that one algorithm is best.
     We need to be relative and neglect some parameters that vary machine to machine.
 
-    So, Ideally we assume and express the running time of a given algorithm as a function of input size n f(n) and compare those functions. 
+    So, Ideally we assume and express the running time of a given algorithm as a function of input size n f(n) and compare those functions.
 
     ASYMPTOTIC NOTATIONS- For representaion of expressions for best avg and worst cases we use a form of function f(x)
 
@@ -32,7 +32,7 @@ PROBLEM SOLVING FOR CODING INTERVIEW AND COMPETITIVE PROGRAMMING.
      https://www.geeksforgeeks.org/analysis-algorithms-big-o-analysis/
      https://www.geeksforgeeks.org/properties-of-asymptotic-notations/
      https://www.geeksforgeeks.org/analysis-of-algorithems-little-o-and-little-omega-notations/?ref=rp
-    
+
     Also go through book included for detailed study.
 
 
@@ -57,7 +57,7 @@ PROBLEM SOLVING FOR CODING INTERVIEW AND COMPETITIVE PROGRAMMING.
 
             4.  log(1)+log(2)+....log(n)= n*log(n)
 
-            5.  (1^p)+(2^p)+(3^p)+....(n^p)=(n^(p+1))/(p+1) 
+            5.  (1^p)+(2^p)+(3^p)+....(n^p)=(n^(p+1))/(p+1)
 
             6. 1/2+1/3+1/5+...1/n= log(log(n))     (for sigma(1/k) k is prime number)
 
@@ -75,7 +75,7 @@ PROBLEM SOLVING FOR CODING INTERVIEW AND COMPETITIVE PROGRAMMING.
 
             1. tn= a* r^(n-1)
 
-            2. Sn = 
+            2. Sn =
                     a(r^n - 1)/(r-1) if (r>1)
 
                     a(1 - r^n)/(1-r) if (r<1)
@@ -110,11 +110,11 @@ PROBLEM SOLVING FOR CODING INTERVIEW AND COMPETITIVE PROGRAMMING.
         7.  PRIME FACTORIZATION
                     A. FIND PRIME FACTORS--O(sqrt(n)
                     B. USING SIEVE --O(log(N))
-                
+
         8.  LCM
                 A.  FOR TWO NUMBERS-USING GCD*LCM=a*b FORMULA. --O(MAX(log(A,B)))
 
-                B.  FOR ARRAY OF INTEGERS - STILL USE FORMULA BUT SLIGHT CHANGE. 
+                B.  FOR ARRAY OF INTEGERS - STILL USE FORMULA BUT SLIGHT CHANGE.
 
 
         9.  MODULAR MULTIPLICATIVE INVERSE
@@ -133,17 +133,17 @@ PROBLEM SOLVING FOR CODING INTERVIEW AND COMPETITIVE PROGRAMMING.
                 SO FOR GIVEN X WE NEED TO COUNT ALL NO.S Yi where GCD(X,Yi)=1 and 1<=Yi<=X.
 
                 A.NAIVE --O(nlog(n))
-                B.Eulers formula 
+                B.Eulers formula
                         f(x)= x*( product of all (1-1/p) for all prime factors of n) --O(log(n))
 
 
-                
+
                 imp facts :
                         -sum of all values of totient fxn of all divisors of n =n.
                         - value of totient fxn for prime numbers f(p)=p-1.
                         - if gcd(a,b)=1 then f(a)*f(b)=f(a,b) f is totient fxn here.
-    
-    
+
+
     C.BIT MANIPULATION
 
             1. BITWISE OPERATORS
@@ -151,7 +151,7 @@ PROBLEM SOLVING FOR CODING INTERVIEW AND COMPETITIVE PROGRAMMING.
                     -shifting.
                     -merging and masking.
                     -swapping
-                    
+
             3. Powers of two.
             4. Power set.
 
@@ -183,8 +183,7 @@ PROBLEM SOLVING FOR CODING INTERVIEW AND COMPETITIVE PROGRAMMING.
             8. BACKTRACKING
             9. DYNAMIC PROGRAMMING
             10. GRAPH ALGORITHMS
-        
 
 
-DATA STRUCTURES AND ALGORITHMS to be updated soon.
 
+#DATA STRUCTURES AND ALGORITHMS to be updated soon.

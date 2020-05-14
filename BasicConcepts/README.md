@@ -1,5 +1,5 @@
 1.INPUT-OUTPUT
-
+        
         a.Sometimes input and output is bottleneck in program. So, following lines can be included for making it efficient in c++:
 
             ios::sync_with_stdio(0);
@@ -11,13 +11,13 @@
 
             string s;
             getline(cin,s);
-        
+
         c.If amount of data is unknown and don't know where to stop:
 
             while(cin>>x){
                 //code
             }
-        
+
         d.If want to use file for input and output the just include these lines in beginning:
 
 
@@ -30,7 +30,7 @@
 
         -for long long --long long--64bit integer. value ranges from (-2^63 to 2^63) about (-9*10^18 to +9*10^18)
 
-        
+
         WRONG CODE:
 
                     int a = 123456789;
@@ -44,13 +44,13 @@
                     long long b= a*a;
                     cout<<b;
 
-        
+
         -Comparing Floats:
 
             example:
 
                     double x= 0.3*3 + .1;
-                    cout<<x; 
+                    cout<<x;
 
                     It may not give output 1.It is because some numbers cannot be represented accurately in float and there are rounding errors.
 
@@ -58,7 +58,7 @@
 
                     if( abs(a-b) < 1e-9){
                         //a and b are equal.
-                    } 
+                    }
 
 
 3.CODE SHORTEN AND SHORTCUTS:
@@ -83,14 +83,3 @@
 
             #define fo(i,n) for(int i=0;i<n;i++)
             #define fo(i,a,b) for(int i=a;i<=b;i++)
-            
-
-
-
-
-
-
-
-
-
-        
