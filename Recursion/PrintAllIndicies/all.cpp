@@ -67,20 +67,33 @@ for(int i=0;i<n;i++)
 }
 */
 
-int firstIndex(int a[], int size, int x) {
+int allIndex(int a[], int size, int x, int out[] ) {
 
 	if (size == 0) {
-		return -1;
-	}
-
-	if (a[0] == x) {
 		return 0;
 	}
-	int indexf = firstIndex(a + 1, size - 1, x);
-	if (indexf == -1) {
-		return -1;
+
+	int outsize = allIndex(a + 1, size - 1, x, out);
+	if (a[0] == x)
+	{
+
+		for (int i = outsize - 1; i >= 0 ; i--)
+		{
+			out[i + 1] = out[i] + 1;
+		}
+		out[0] = 0;
+
+		return outsize + 1;
+
 	}
-	return indexf + 1;
+	else
+	{
+		for (int i = 0; i < outsize ; ++i)
+		{
+			out[i] += 1;
+		}
+		return outsize;
+	}
 }
 
 int main() {
@@ -100,13 +113,21 @@ int main() {
 		int x, n;
 		cin >> n;
 		int arr[n];
+		int out[n];
+		int a;
 		fo(i, n)
 		{
 			cin >> arr[i];
 
 		}
 		cin >> x;
-		cout << firstIndex(arr, n, x) << endl;
+
+		a = allIndex(arr, n, x, out);
+		fo(i, a)
+		{
+			cout << out[i] << " ";
+		}
+		cout << endl;
 
 
 	}
