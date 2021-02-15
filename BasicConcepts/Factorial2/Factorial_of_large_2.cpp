@@ -1,7 +1,7 @@
 
 #include <bits/stdc++.h>
 using namespace std;
-#define MAX 1000
+#define MAX 100
 
 string factorial(long long n)
 {
@@ -30,5 +30,5 @@ string factorial(long long n)
 
 int main()
 {
-    cout<<factorial(1000)<<"\n";
+    cout<<factorial(100)<<"\n";
 }
