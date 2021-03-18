@@ -12,23 +12,79 @@ import math
 if sys.version_info[0] < 3:
     from __builtin__ import xrange as range
     from future_builtins import ascii, filter, hex, map, oct, zip
+def CountOccurrences(string, substring): 
 
+    count = 0
+    start = 0
+  
+
+    while start < len(string): 
+   
+        pos = string.find(substring, start) 
+  
+        if pos != -1: 
+            start = pos + 1
+
+            count += 1
+        else: 
+            
+            break
+ 
+    return count 
 
 def main():
     
     t=int(input())
     for _ in range(t):
+        
         n=int(input())
-        a=list(map(int,input().split()))
-        a.sort()
-        x=0
-        for i in range(1,n):
-            if(a[i]-a[i-1]>1):
-                x+=1
-        if(x>=1):
-            print("NO")
+        s=input()
+        q="abacaba"
+        f=0
+        letter=0
+        if(CountOccurrences(s,q)==0):
+            ss=s
+            for i in range(len(ss)):
+                if(ss[i]!=q[letter] and ss[i]!='?'):
+                    letter=0
+                    ss=s
+                if(ss[i]==q[letter]):
+                    letter+=1
+                    if(letter==7):
+                        letter=0
+                        s=ss
+                        break
+                    
+                elif(ss[i]=='?'):
+                    #print(";",s[:i],letter,s[i+1:])
+                    s1=ss[:i]+q[letter]+ss[i+1:]
+                    
+                    #print("s1:",s1)
+                    ss=s1
+                    letter+=1
+                    if(letter==7):
+                        letter=0
+                        s=ss
+                        break
+                    
+
+                #print("ss:",ss)
+
+        if(CountOccurrences(s,q)==1):
+            print("Yes")
+            for i in s:
+                if(i=='?'):
+                    print("z",end="")
+                else:
+                    print(i,end="")
+            print()
+
         else:
-            print("YES")
+            print("No")
+            
+
+
+        
 
 
 

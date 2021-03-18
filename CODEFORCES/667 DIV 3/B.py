@@ -18,17 +18,28 @@ def main():
     
     t=int(input())
     for _ in range(t):
-        n=int(input())
-        a=list(map(int,input().split()))
-        a.sort()
-        x=0
-        for i in range(1,n):
-            if(a[i]-a[i-1]>1):
-                x+=1
-        if(x>=1):
-            print("NO")
+        
+        a,b,x,y,n=map(int,input().split())
+        p1,p2=1,1
+        if(a-n>=x):
+            p1=(a-n)*(b)
         else:
-            print("YES")
+            p1=(x*max(y,(b-(n-(a-x)))))
+
+        if(b-n>=y):
+            p2=(b-n)*(a)
+        else:
+            p2=(y*max(x,(a-(n-(b-y)))))
+            
+        print(min(p1,p2))
+
+
+
+
+
+        
+
+        
 
 
 

@@ -6,6 +6,7 @@ import sys
 from io import BytesIO, IOBase
 from collections import Counter
 import math
+import random
 
 
 
@@ -18,17 +19,18 @@ def main():
     
     t=int(input())
     for _ in range(t):
-        n=int(input())
-        a=list(map(int,input().split()))
-        a.sort()
-        x=0
-        for i in range(1,n):
-            if(a[i]-a[i-1]>1):
-                x+=1
-        if(x>=1):
-            print("NO")
+        
+        n,r=map(int,input().split())
+        if(n>r):
+            print(r*(r+1)//2)
         else:
-            print("YES")
+            print((n-1)*(n)//2+1)
+        
+
+            
+
+
+        
 
 
 

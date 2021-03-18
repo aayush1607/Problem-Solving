@@ -19,16 +19,40 @@ def main():
     t=int(input())
     for _ in range(t):
         n=int(input())
-        a=list(map(int,input().split()))
-        a.sort()
-        x=0
-        for i in range(1,n):
-            if(a[i]-a[i-1]>1):
-                x+=1
-        if(x>=1):
-            print("NO")
-        else:
-            print("YES")
+        p=list(map(int,input().split()))
+
+        m=-1
+        p1=[]
+        curr=0
+        s=[]
+        for i in range(n):
+            if(p[i]>m):
+                m=p[i]
+                p1.append(s)
+                s=[]
+                s.append(p[i])
+            else:
+                s.append(p[i])
+                
+        p1.append(s)
+        p1=p1[1:]
+        p1.sort(reverse=True)
+        for i in range(len(p1)):
+            for j in p1[i]:
+                print(j,end=" ")
+        print()
+
+        
+      
+        
+
+
+
+
+
+        
+
+        
 
 
 

@@ -13,22 +13,39 @@ if sys.version_info[0] < 3:
     from __builtin__ import xrange as range
     from future_builtins import ascii, filter, hex, map, oct, zip
 
-
+def sum_of_digits(n): 
+    sum = 0
+    while (n != 0): 
+        sum = sum + int(n % 10) 
+        n = int(n/10) 
+    return sum
 def main():
     
     t=int(input())
     for _ in range(t):
-        n=int(input())
-        a=list(map(int,input().split()))
-        a.sort()
-        x=0
-        for i in range(1,n):
-            if(a[i]-a[i-1]>1):
-                x+=1
-        if(x>=1):
-            print("NO")
-        else:
-            print("YES")
+        
+        n,x=map(int,input().split())
+        c=10
+        i=n
+        while sum(map(int, str(n)))>x:
+            n=((n//c+1)*c)
+            c*=10
+        print(n-i)
+
+
+         
+
+
+
+
+
+
+
+
+        
+        
+
+        
 
 
 

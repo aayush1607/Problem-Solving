@@ -18,17 +18,15 @@ def main():
     
     t=int(input())
     for _ in range(t):
-        n=int(input())
-        a=list(map(int,input().split()))
-        a.sort()
-        x=0
-        for i in range(1,n):
-            if(a[i]-a[i-1]>1):
-                x+=1
-        if(x>=1):
-            print("NO")
+        
+        a,b=map(int,input().split())
+        if(abs(b-a)%10==0):
+
+            print(abs(b-a)//10)
         else:
-            print("YES")
+            print(abs(b-a)//10+1)
+
+        
 
 
 

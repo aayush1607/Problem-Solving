@@ -6,6 +6,7 @@ import sys
 from io import BytesIO, IOBase
 from collections import Counter
 import math
+import random
 
 
 
@@ -15,34 +16,35 @@ if sys.version_info[0] < 3:
 
 
 def main():
-    
+
     t=int(input())
     for _ in range(t):
+
         n=int(input())
-        a=list(map(int,input().split()))
-        a.sort()
-        x=0
-        for i in range(1,n):
-            if(a[i]-a[i-1]>1):
-                x+=1
-        if(x>=1):
-            print("NO")
+        if(n%2==0):
+            print(n//2)
         else:
-            print("YES")
+            print(n//2 +1)
 
 
 
-                    
-                
-
-        
-        
 
 
 
-        
-        
-        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     # region fastio
 

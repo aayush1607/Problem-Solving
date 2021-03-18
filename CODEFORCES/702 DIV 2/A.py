@@ -18,17 +18,35 @@ def main():
     
     t=int(input())
     for _ in range(t):
-        n=int(input())
-        a=list(map(int,input().split()))
-        a.sort()
-        x=0
-        for i in range(1,n):
-            if(a[i]-a[i-1]>1):
-                x+=1
-        if(x>=1):
-            print("NO")
-        else:
-            print("YES")
+        
+        p,a,b,c=map(int,input().split())
+        
+
+        x=((p//a)*a)
+        if(x<p):
+            x+=a
+
+
+
+        y=(p//b)*b
+        if y<p:
+            y+=b
+
+        z=(p//c)*c
+
+        if z<p:
+            z+=c
+        # print(" ",x,y,z,p)
+        
+        print(min(abs(x-p),abs(y-p),abs(z-p)))
+
+
+
+
+     
+        
+
+        
 
 
 
@@ -118,6 +136,8 @@ input = lambda: sys.stdin.readline().rstrip("\r\n")
 # if not zz:
 #     sys.stdin=open('input.txt', 'r')
 #     sys.stdout=open('output.txt','w')
+
+
 # # endregion
 
 if __name__ == "__main__":

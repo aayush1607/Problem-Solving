@@ -4,10 +4,6 @@ from __future__ import division, print_function
 import os
 import sys
 from io import BytesIO, IOBase
-from collections import Counter
-import math
-
-
 
 if sys.version_info[0] < 3:
     from __builtin__ import xrange as range
@@ -15,34 +11,20 @@ if sys.version_info[0] < 3:
 
 
 def main():
-    
     t=int(input())
     for _ in range(t):
         n=int(input())
-        a=list(map(int,input().split()))
-        a.sort()
-        x=0
-        for i in range(1,n):
-            if(a[i]-a[i-1]>1):
-                x+=1
-        if(x>=1):
-            print("NO")
-        else:
-            print("YES")
+        oddno=3
+        c=0
+        while(((oddno*oddno)+1)//2<=n):
+            c+=1
+            oddno+=2
+        print(c)    
 
 
 
-                    
-                
-
-        
-        
 
 
-
-        
-        
-        
 
     # region fastio
 
@@ -114,11 +96,7 @@ else:
 
 input = lambda: sys.stdin.readline().rstrip("\r\n")
 
-# zz=not __debug__
-# if not zz:
-#     sys.stdin=open('input.txt', 'r')
-#     sys.stdout=open('output.txt','w')
-# # endregion
+# endregion
 
 if __name__ == "__main__":
     main()

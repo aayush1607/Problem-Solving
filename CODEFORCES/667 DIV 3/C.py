@@ -12,23 +12,72 @@ import math
 if sys.version_info[0] < 3:
     from __builtin__ import xrange as range
     from future_builtins import ascii, filter, hex, map, oct, zip
-
+def Divisors(n) : 
+    d=[]  
+    i = 1
+    while i <= math.sqrt(n): 
+          
+        if (n % i == 0) : 
+               
+            if (n / i == i) : 
+                d.append(i)
+            else : 
+           
+                d.append(i)
+                d.append(n//i)
+        i = i + 1
+    return d
 
 def main():
     
     t=int(input())
     for _ in range(t):
-        n=int(input())
-        a=list(map(int,input().split()))
-        a.sort()
-        x=0
-        for i in range(1,n):
-            if(a[i]-a[i-1]>1):
-                x+=1
-        if(x>=1):
-            print("NO")
-        else:
-            print("YES")
+        
+        n,x,y=map(int,input().split())
+        d=Divisors(y-x)
+        rs,rd,re=0,0,0
+        #print(d)
+        mmax=1000000000
+        for i in range(len(d)):
+            elements=(y-x)//d[i]+1
+            start=x
+            end=y
+            while elements<n and start-d[i]>=1:
+                elements+=1
+                start-=d[i]
+            while elements<n:
+                elements+=1
+                end+=d[i]
+
+            if(elements==n and end<mmax):
+                mmax=end
+                rs=start
+                re=end
+                rd=d[i]
+        for i in range(rs,re+1,rd):
+            print(i,end=" ")
+        print()
+
+
+
+
+
+                
+
+
+
+
+
+
+
+
+
+
+
+        
+        
+
+        
 
 
 

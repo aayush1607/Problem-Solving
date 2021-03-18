@@ -3,48 +3,47 @@ from __future__ import division, print_function
 
 import os
 import sys
+from collections import Counter  
 from io import BytesIO, IOBase
-from collections import Counter
-import math
-
-
 
 if sys.version_info[0] < 3:
     from __builtin__ import xrange as range
     from future_builtins import ascii, filter, hex, map, oct, zip
 
+ 
+
+
 
 def main():
-    
-    t=int(input())
-    for _ in range(t):
-        n=int(input())
-        a=list(map(int,input().split()))
-        a.sort()
-        x=0
-        for i in range(1,n):
-            if(a[i]-a[i-1]>1):
-                x+=1
-        if(x>=1):
-            print("NO")
-        else:
-            print("YES")
+    t,p=map(int,input().split())
+    if(p==0):
+        for i in range(t):
+            n,q=map(int,input().split())
+            a=[]
+            for j in range(1,n+2):
+                a.append(0)
+            
+            for j in range(q):
+                l,r=map(int,input().split())
+                a[l-1]+=1
+                a[r]+=-1
+            for j in range(1,len(a)):
+                a[j]+=a[j-1]
+            for j in range(len(a)-1):
+                if(a[j]==0):
+                    print(1,end=" ")
+                else:
+                    print(j+1,end=" ")
+                
+            print()
 
 
-
-                    
+            
                 
 
-        
-        
 
 
-
-        
-        
-        
-
-    # region fastio
+# region fastio
 
 BUFSIZE = 8192
 
@@ -114,11 +113,10 @@ else:
 
 input = lambda: sys.stdin.readline().rstrip("\r\n")
 
+# endregion
 # zz=not __debug__
 # if not zz:
 #     sys.stdin=open('input.txt', 'r')
 #     sys.stdout=open('output.txt','w')
-# # endregion
-
 if __name__ == "__main__":
     main()

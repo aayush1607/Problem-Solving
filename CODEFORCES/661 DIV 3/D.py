@@ -15,60 +15,7 @@ if sys.version_info[0] < 3:
 def main():
     t=int(input())
     for _ in range(t):
-        n=int(input())
-        a=list(input())
-        zeros=[]
-        ones=[]
-        seq=0
-        
-        l=Counter()
-        for i in range(n):
-            if(a[i]=='0'):
-                if(len(ones)==0):
-                    zeros.append(seq+1)
-                    l[i]=seq+1
-                    seq+=1
-
-                else:
-                    l[i]=ones[-1]
-                    zeros.append(ones[-1])
-                    ones.pop()
-            else:
-                if(len(zeros)==0):
-                    ones.append(seq+1)
-                    l[i]=seq+1
-                    seq+=1
-                else:
-                    l[i]=zeros[-1]
-                    ones.append(zeros[-1])
-                    zeros.pop()
-        print(seq)
-        for i in range(len(a)):
-            print(l[i],end=" ")
-        print()
-
-
-            
-
-
-
-
-
-
-
-
-
-
-
-
-        
-
-
-
-
-        
-        
-        
+        pass
 
     # region fastio
 

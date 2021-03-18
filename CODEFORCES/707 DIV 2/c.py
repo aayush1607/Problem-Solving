@@ -1,53 +1,14 @@
-
-from __future__ import division, print_function
-
 import os
 import sys
-from io import BytesIO, IOBase
 from collections import Counter
+from io import BytesIO, IOBase
 import math
-
-
-
-if sys.version_info[0] < 3:
-    from __builtin__ import xrange as range
-    from future_builtins import ascii, filter, hex, map, oct, zip
-
-
-def main():
-    
-    t=int(input())
-    for _ in range(t):
-        n=int(input())
-        a=list(map(int,input().split()))
-        a.sort()
-        x=0
-        for i in range(1,n):
-            if(a[i]-a[i-1]>1):
-                x+=1
-        if(x>=1):
-            print("NO")
-        else:
-            print("YES")
-
-
-
-                    
-                
-
-        
-        
-
-
-
-        
-        
-        
-
-    # region fastio
 
 BUFSIZE = 8192
 
+if sys.version_info[0]<3:
+    from __built__ import xrange as range
+    from future_builtins import ascii, filter, hex, map, oct, zip
 
 class FastIO(IOBase):
     newlines = 0
@@ -92,9 +53,7 @@ class IOWrapper(IOBase):
         self.read = lambda: self.buffer.read().decode("ascii")
         self.readline = lambda: self.buffer.readline().decode("ascii")
 
-
-def print(*args, **kwargs):
-    """Prints the values to a stream, or to sys.stdout by default."""
+def print(*args,**kwargs):
     sep, file = kwargs.pop("sep", " "), kwargs.pop("file", sys.stdout)
     at_start = True
     for x in args:
@@ -106,19 +65,60 @@ def print(*args, **kwargs):
     if kwargs.pop("flush", False):
         file.flush()
 
-
 if sys.version_info[0] < 3:
     sys.stdin, sys.stdout = FastIO(sys.stdin), FastIO(sys.stdout)
 else:
     sys.stdin, sys.stdout = IOWrapper(sys.stdin), IOWrapper(sys.stdout)
-
 input = lambda: sys.stdin.readline().rstrip("\r\n")
 
-# zz=not __debug__
-# if not zz:
-#     sys.stdin=open('input.txt', 'r')
-#     sys.stdout=open('output.txt','w')
-# # endregion
+# # For getting input from input.txt file 
+# sys.stdin = open('input.txt', 'r')  
+  
+# # Printing the Output to output.txt file 
+# sys.stdout = open('output.txt', 'w') 
+
+
+
+def main():
+
+	n=int(input())
+	a=list(map(int,input().split()))
+	d=Counter()
+	f=0
+	ac=Counter()
+
+	for 
+
+	for i in range(len(a)):
+		for j in range(i+1,len(a)):
+			d[a[i]+a[j]]=[]
+			d[a[i]+a[j]].append(i)
+			d[a[i]+a[j]].append(j)
+
+
+	for i in d:
+		if(len(d[i])>=2):
+			print("YES")
+			print(d[i][0][0]+1,d[i][0][1]+1,d[i][1][0]+1,d[i][1][1]+1)
+			f=1
+			break
+	if(f==0):
+		print("NO")
+
+			
+
+
+
+
+        
+
+    
+
+
+
+
+
+
 
 if __name__ == "__main__":
     main()

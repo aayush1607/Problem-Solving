@@ -1,53 +1,14 @@
-
-from __future__ import division, print_function
-
 import os
 import sys
-from io import BytesIO, IOBase
 from collections import Counter
+from io import BytesIO, IOBase
 import math
-
-
-
-if sys.version_info[0] < 3:
-    from __builtin__ import xrange as range
-    from future_builtins import ascii, filter, hex, map, oct, zip
-
-
-def main():
-    
-    t=int(input())
-    for _ in range(t):
-        n=int(input())
-        a=list(map(int,input().split()))
-        a.sort()
-        x=0
-        for i in range(1,n):
-            if(a[i]-a[i-1]>1):
-                x+=1
-        if(x>=1):
-            print("NO")
-        else:
-            print("YES")
-
-
-
-                    
-                
-
-        
-        
-
-
-
-        
-        
-        
-
-    # region fastio
 
 BUFSIZE = 8192
 
+if sys.version_info[0]<3:
+    from __built__ import xrange as range
+    from future_builtins import ascii, filter, hex, map, oct, zip
 
 class FastIO(IOBase):
     newlines = 0
@@ -92,9 +53,7 @@ class IOWrapper(IOBase):
         self.read = lambda: self.buffer.read().decode("ascii")
         self.readline = lambda: self.buffer.readline().decode("ascii")
 
-
-def print(*args, **kwargs):
-    """Prints the values to a stream, or to sys.stdout by default."""
+def print(*args,**kwargs):
     sep, file = kwargs.pop("sep", " "), kwargs.pop("file", sys.stdout)
     at_start = True
     for x in args:
@@ -106,19 +65,102 @@ def print(*args, **kwargs):
     if kwargs.pop("flush", False):
         file.flush()
 
-
 if sys.version_info[0] < 3:
     sys.stdin, sys.stdout = FastIO(sys.stdin), FastIO(sys.stdout)
 else:
     sys.stdin, sys.stdout = IOWrapper(sys.stdin), IOWrapper(sys.stdout)
-
 input = lambda: sys.stdin.readline().rstrip("\r\n")
 
-# zz=not __debug__
-# if not zz:
-#     sys.stdin=open('input.txt', 'r')
-#     sys.stdout=open('output.txt','w')
-# # endregion
+# # For getting input from input.txt file 
+# sys.stdin = open('input.txt', 'r')  
+  
+# # Printing the Output to output.txt file 
+# sys.stdout = open('output.txt', 'w') 
+
+
+
+def main():
+    t=int(input())
+    for _ in range(t):
+        s=input()
+
+        d=Counter(s)
+        # print(d)
+        l='L'
+        r='R'
+        u='U'
+        D='D'
+        if(d[l]<=d[r]):
+            s1=""
+            c=d[r]-d[l]
+            for i in range(len(s)):
+                if(c>0 and s[i]==r):
+                    c-=1
+                else:
+                    s1+=s[i]
+        elif(d[l]>d[r]):
+            s1=""
+            c=d[l]-d[r]
+            for i in range(len(s)):
+                if(c>0 and s[i]==l):
+                    c-=1
+                else:
+                    s1+=s[i]
+        if(d[D]<=d[u]):
+            s2=""
+            c=d[u]-d[D]
+            for i in range(len(s1)):
+                if(c>0 and s1[i]==u):
+                    c-=1
+                else:
+                    s2+=s1[i]
+        elif(d[D]>d[u]):
+            s2=""
+            c=d[D]-d[u]
+            for i in range(len(s1)):
+                if(c>0 and s1[i]==D):
+                    c-=1
+                else:
+                    s2+=s1[i]
+
+        
+
+        d=Counter(s2)
+        #print(d)
+        f=0
+        if(min(d[l],d[r])==0 ):
+            if(min(d[u],d[D])==0):
+                f=1
+            else:
+                f=0
+        if(min(d[u],d[D])==0):
+            if(min(d[l],d[r])==0 ):
+                f=1
+            else:
+                f=0
+
+        if("".join(list(set(list(s))))=='LR' or "".join(list(set(s[::-1])))=='LR' or "".join(list(set(list(s))))=='UD' or "".join(list(set(list(s[::-1]))))=='UD'):
+            print(len("".join(list(set(list(s))))))
+            print("".join(list(set(list(s)))))
+        elif( (f==1 )):
+            print(0)
+
+        else:
+            print(len("L"*d[l]+"U"*d[u]+"R"*d[r]+"D"*d[D]))
+            print("U"*d[u]+"R"*d[r]+"D"*d[D]+"L"*d[l])
+
+
+
+
+
+
+    
+
+
+
+
+
+
 
 if __name__ == "__main__":
     main()

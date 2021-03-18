@@ -1,48 +1,47 @@
 
 from __future__ import division, print_function
-
+from itertools import permutations  
 import os
 import sys
 from io import BytesIO, IOBase
 from collections import Counter
-import math
-
-
-
 if sys.version_info[0] < 3:
     from __builtin__ import xrange as range
     from future_builtins import ascii, filter, hex, map, oct, zip
 
 
+
 def main():
-    
     t=int(input())
     for _ in range(t):
-        n=int(input())
-        a=list(map(int,input().split()))
-        a.sort()
-        x=0
-        for i in range(1,n):
-            if(a[i]-a[i-1]>1):
-                x+=1
-        if(x>=1):
-            print("NO")
-        else:
-            print("YES")
+        n,U,R,D,L=map(int,input().split())
+        ll=[U,R,D,L]
+        perm = []
+        for i in range(4):
+            perm.append(ll[i+1:]+ll[:i+1])
+        ff=True
+        print(perm)
+        for i in list(perm):
+            u,r,d,l=i[0],i[1],i[2],i[3]
+            if(r==n or l==n):
+                ff=False
+            if(u==0):
+                if(d==0 and (r==n-1 or l==n-1)):
+                    ff=False
+                elif(d==1 and (r==n-1 and l==n-1)):
+                    ff=False
+            if(u==1):
+                if((r==n or l==n)):
 
 
-
-                    
                 
+        if(ff):
+            print("YES")
+        else:
+            print("NO")
+                    
 
-        
-        
 
-
-
-        
-        
-        
 
     # region fastio
 
@@ -113,12 +112,11 @@ else:
     sys.stdin, sys.stdout = IOWrapper(sys.stdin), IOWrapper(sys.stdout)
 
 input = lambda: sys.stdin.readline().rstrip("\r\n")
-
-# zz=not __debug__
-# if not zz:
-#     sys.stdin=open('input.txt', 'r')
-#     sys.stdout=open('output.txt','w')
-# # endregion
+zz=not __debug__
+if not zz:
+    sys.stdin=open('input.txt', 'r')
+    sys.stdout=open('output.txt','w')
+# endregion
 
 if __name__ == "__main__":
     main()

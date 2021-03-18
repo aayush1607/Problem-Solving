@@ -1,0 +1,9 @@
+[
+	{
+		"correct_answers":
+		[
+			"2\nLR\n14\nRUURDDDDLLLUUR\n12\nULDDDRRRUULL\n2\nLR\n2\nUD\n0"
+		],
+		"test": "6\nLRU\nDURLDRUDRULRDURDDL\nLRUDDLRUDRUL\nLLLLRRRR\nURDUR\nLLL\n"
+	}
+]

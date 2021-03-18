@@ -16,19 +16,65 @@ if sys.version_info[0] < 3:
 
 def main():
     
-    t=int(input())
+    t=1
     for _ in range(t):
-        n=int(input())
-        a=list(map(int,input().split()))
-        a.sort()
-        x=0
-        for i in range(1,n):
-            if(a[i]-a[i-1]>1):
-                x+=1
-        if(x>=1):
-            print("NO")
-        else:
-            print("YES")
+        n,m=map(int,input().split())
+        s=input()
+        t=input()
+
+        si=0
+        tj=0
+        min1=[]
+        while (si<len(s) and tj<len(t)):
+            if(s[si]==t[tj]):
+                min1.append(si)
+                tj+=1
+            si+=1
+
+        max1=[]
+        si=len(s)-1
+        tj=len(t)-1
+        while (si>=0 and tj>=0):
+            if(s[si]==t[tj]):
+                max1.append(si)
+                tj-=1
+            si-=1
+        max1=max1[::-1]
+
+        ans=-1
+        for i in range(1,m):
+            if(ans<(max1[i]-min1[i-1])):
+                ans=(max1[i]-min1[i-1])
+        print(ans)
+
+
+
+
+
+
+
+        
+        
+
+
+
+
+                
+
+
+
+
+
+
+
+
+
+
+
+        
+        
+
+        
 
 
 

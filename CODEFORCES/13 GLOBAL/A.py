@@ -6,6 +6,7 @@ import sys
 from io import BytesIO, IOBase
 from collections import Counter
 import math
+import random
 
 
 
@@ -15,20 +16,37 @@ if sys.version_info[0] < 3:
 
 
 def main():
-    
-    t=int(input())
-    for _ in range(t):
-        n=int(input())
-        a=list(map(int,input().split()))
-        a.sort()
-        x=0
-        for i in range(1,n):
-            if(a[i]-a[i-1]>1):
-                x+=1
-        if(x>=1):
-            print("NO")
+
+    n,q=map(int,input().split())
+    a=list(map(int,input().split()))
+    d=Counter(a)
+    for i in range(q):
+        t,xk=map(int,input().split())
+        if(t==1):
+            if(a[xk-1]==1):
+                d[1]-=1
+                d[0]+=1
+                a[xk-1]=0
+            else:
+                d[1]+=1
+                d[0]-=1
+                a[xk-1]=1
         else:
-            print("YES")
+            if(xk>d[1]):
+                print(0)
+            else:
+                print(1)
+
+
+
+
+        
+        
+
+            
+
+
+        
 
 
 

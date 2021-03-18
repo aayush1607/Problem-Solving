@@ -1,50 +1,68 @@
-
+#!/usr/bin/env python
 from __future__ import division, print_function
 
 import os
 import sys
 from io import BytesIO, IOBase
 from collections import Counter
-import math
-
-
-
 if sys.version_info[0] < 3:
     from __builtin__ import xrange as range
     from future_builtins import ascii, filter, hex, map, oct, zip
 
 
 def main():
-    
+# region fastio
     t=int(input())
-    for _ in range(t):
-        n=int(input())
+
+    for i in range(t):
+        n,m=map(int,input().split())
         a=list(map(int,input().split()))
-        a.sort()
-        x=0
-        for i in range(1,n):
-            if(a[i]-a[i-1]>1):
-                x+=1
-        if(x>=1):
-            print("NO")
+        for i in range(len(a)):
+            a[i]=a[i]%m
+        
+        d=Counter(a)
+        ans=0
+        if(d[0]==n):
+            print(1)
         else:
-            print("YES")
+            for i in range(1,m//2+1):
+                #print("i",i)
+                if(d[i]==d[m-i]):
+                    if(d[i]>0 and d[m-i]>0):
+                        ans+=1
+                        d[i]=0
+                        d[m-i]=0
+                else:
 
-
-
-                    
+                    if(d[i]<d[m-i]):
+                        if(d[i]>0):
+                            ans+=1
+                            d[m-i]-=(d[i]+1)
+                            d[i]=0
+                        if(d[m-i]>0):
+                            ans+=d[m-i]
+                            d[m-i]=0
+                        else:
+                            d[m-i]=0
+                    else:
+                        if(d[m-i]>0):
+                            ans+=1
+                            d[i]-=(d[m-i]+1)
+                            d[m-i]=0
+                        if(d[i]>0):
+                            ans+=d[i]
+                            d[i]=0
+                        else:
+                            d[i]=0
+                #print(d)
+            #print(d)
+            if(d[0]>0):
+                print(ans+1)
+            else:
+                print(ans)
+            
                 
 
-        
-        
-
-
-
-        
-        
-        
-
-    # region fastio
 
 BUFSIZE = 8192
 
@@ -114,11 +132,7 @@ else:
 
 input = lambda: sys.stdin.readline().rstrip("\r\n")
 
-# zz=not __debug__
-# if not zz:
-#     sys.stdin=open('input.txt', 'r')
-#     sys.stdout=open('output.txt','w')
-# # endregion
+# endregion
 
 if __name__ == "__main__":
     main()

@@ -6,6 +6,7 @@ import sys
 from io import BytesIO, IOBase
 from collections import Counter
 import math
+import random
 
 
 
@@ -14,21 +15,57 @@ if sys.version_info[0] < 3:
     from future_builtins import ascii, filter, hex, map, oct, zip
 
 
+
+
+
 def main():
-    
     t=int(input())
     for _ in range(t):
         n=int(input())
         a=list(map(int,input().split()))
-        a.sort()
-        x=0
-        for i in range(1,n):
-            if(a[i]-a[i-1]>1):
-                x+=1
-        if(x>=1):
-            print("NO")
+        f=0
+        c=0
+        s=0
+        for i in a:
+            if(i!=1):
+                s=1
+                break
+
+        if(s==1):
+            while(c!=n):
+                i=0
+                while(i<len(a)):
+                    
+                    k=abs(a[i])
+                    if(a[i]!=-1):
+                        a[i]=max(a[i]-1,1)
+                    if(a[i]==1):
+                        a[i]=-1
+                        c+=1
+                    i+=k
+                    #print(a,c)
+                #print("---")
+                f+=1
+            
+            print(f)
         else:
-            print("YES")
+            print(0)
+        
+
+
+        
+
+
+
+
+
+        
+        
+
+            
+
+
+        
 
 
 
@@ -114,10 +151,10 @@ else:
 
 input = lambda: sys.stdin.readline().rstrip("\r\n")
 
-# zz=not __debug__
-# if not zz:
-#     sys.stdin=open('input.txt', 'r')
-#     sys.stdout=open('output.txt','w')
+zz=not __debug__
+if not zz:
+    sys.stdin=open('input.txt', 'r')
+    sys.stdout=open('output.txt','w')
 # # endregion
 
 if __name__ == "__main__":
